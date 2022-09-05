@@ -1,21 +1,23 @@
 <template>
   <div class="grid">
-    <div class="aa">
-      <div class="first text" @click="() => isShow = !isShow">
-        안녕2
-      </div>
-      <div class="second text">
-        안녕2
+    <div class="aaa">
+      <div class="aa">
+        <div class="first text" @click="() => isShow = !isShow">
+          안녕2
+        </div>
+        <div class="second text">
+          안녕2
+        </div>
       </div>
     </div>
     <transition
-      name="accordion-item"
+      name="opacity"
       @enter="startTransition"
       @after-enter="endTransition"
       @before-leave="startTransition"
       @after-leave="endTransition"
     >
-      <CompA v-if="isShow" />
+      <CompA v-if="isShow" class="comp" />
     </transition>
     <div class="third text" :class="{'active': isShow}">
       안녕3
@@ -34,19 +36,36 @@ export default {
     return {
       isShow: false
     }
+  },
+
+  methods: {
+    startTransition (el) {
+      el.style.height = el.scrollHeight + 'px';
+    },
+    endTransition (el) {
+      el.style.height = '';
+    }
   }
 };
 </script>
 
 <style lang="scss" scoped>
 .grid {
-  display: grid;
-  grid-template-rows: repeat(3, 10rem);
   height: 100vh;
 
-  .aa {
-    display: flex;
-    height: 10rem;
+  .aaa {
+    display: grid;
+    grid-template-rows: repeat(1, 8rem);
+  
+    .aa {
+      display: flex;
+      height: 10rem;
+      z-index: 0;
+    }
+  }
+
+  .comp {
+    margin-top: 2rem;
   }
   .first {
     background: wheat;
@@ -80,14 +99,14 @@ export default {
   }
 }
 
-/* .accordion-item-enter-active, .accordion-item-leave-active {
+.opacity-enter-active, .opacity-leave-active {
   will-change: all;
   transition: all 0.2s ease;
 }
-.accordion-item-enter, .accordion-item-leave-to {
+.opacity-enter, .opacity-leave-to {
   height: 0 !important;
   padding: 0 !important;
   margin: 0 !important;
   opacity: 0 !important;
-} */
+}
 </style>
