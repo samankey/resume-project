@@ -19,8 +19,10 @@
     >
       <CompA v-if="isShow" class="comp" />
     </transition>
-    <div class="third text" :class="{'active': isShow}">
-      안녕3
+    <div class="bbb">
+      <div class="third text" :class="{'active': isShow}">
+        안녕3
+      </div>
     </div>
   </div>
 </template>
@@ -60,8 +62,13 @@ export default {
     .aa {
       display: flex;
       height: 10rem;
-      z-index: 0;
+      z-index: -1;
     }
+  }
+
+  .bbb {
+    display: grid;
+    grid-template-rows: repeat(1, 8rem);
   }
 
   .comp {
@@ -91,7 +98,7 @@ export default {
     font-size: 7rem;
     border-radius: 2rem 2rem 0 0;
 
-    transition: ease-out 0.2s;
+    transition: ease-out 0.3s;
   }
 
   .active {
