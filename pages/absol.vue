@@ -42,4 +42,10 @@ export default {
     color: white;
   }
 }
+
+@media screen and (max-width:500px) {
+  .flefle {
+    display: block;
+  }
+}
 </style>

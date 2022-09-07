@@ -101,4 +101,10 @@ export default {
     top: 30rem
   }
 }
+
+@media screen and (max-width:500px) {
+  .absol {
+    overflow: visible;
+  }
+}
 </style>
