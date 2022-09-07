@@ -8,8 +8,15 @@
         banana
       </div>
     </div>
-    <div class="text cc" :class="isShow ? 'toptop' : 'top'">
-      mango
+    <div class="absol2" :class="isShow ? 'toptop' : 'top'">
+      <div class="absol3">
+        <div class="cc text">
+          mango
+        </div>
+        <div class="text ee">
+          갸갸
+        </div>
+      </div>
     </div>
   </div>
 </template>
@@ -31,7 +38,6 @@ export default {
 <style lang="scss" scoped>
 .absol {
   position: relative;
-  display : table;
   flex: 1;
 
   .flex {
@@ -43,9 +49,35 @@ export default {
   .text {
     padding: 0.75rem;
     font-size: 3rem;
-    transition: ease-out 0.3s;
+    transition: all 250ms cubic-bezier(0.125, 0.550, 0.805, 0.440); /* custom */
+    transition-timing-function: cubic-bezier(0.125, 0.550, 0.805, 0.440); /* custom */
     border: 5px solid #040608;
     cursor: url('@/assets/images/backhand1.png'), pointer;
+  }
+
+  .absol2 {
+    position: absolute;
+    width: 100%;
+    transition: all 250ms cubic-bezier(0.125, 0.550, 0.805, 0.440); /* custom */
+    transition-timing-function: cubic-bezier(0.125, 0.550, 0.805, 0.440); /* custom */
+
+    .absol3 {
+      position: relative;
+      .cc {
+        position: absolute;
+        width: 100%;
+        background: #0b3761;
+        flex: 1;
+      }
+
+      .ee {
+        width: 100%;
+        top: 4rem;
+        position: absolute;
+        background: #c1d897;
+      }
+    }
+
   }
 
   .aa {
@@ -56,13 +88,6 @@ export default {
 
   .bb {
     background: #8ea48e;
-    flex: 1;
-  }
-
-  .cc {
-    width: 100%;
-    position: absolute;
-    background: #0b3761;
     flex: 1;
   }
 
