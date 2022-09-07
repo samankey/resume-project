@@ -10,10 +10,10 @@
     </div>
     <div class="absol2" :class="isShow ? 'toptop' : 'top'">
       <div class="absol3">
-        <div class="cc text">
+        <div class="cc text" @click="() => isShowShow = !isShowShow">
           mango
         </div>
-        <div class="text ee">
+        <div class="text ee" :class="isShowShow ? 'toptop' : 'top'">
           갸갸
         </div>
       </div>
@@ -26,6 +26,7 @@ export default {
   data() {
     return {
       isShow: false,
+      isShowShow: false
     }
   },
 
@@ -63,6 +64,7 @@ export default {
 
     .absol3 {
       position: relative;
+
       .cc {
         position: absolute;
         width: 100%;
@@ -72,7 +74,6 @@ export default {
 
       .ee {
         width: 100%;
-        top: 4rem;
         position: absolute;
         background: #c1d897;
       }
