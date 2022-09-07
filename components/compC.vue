@@ -40,6 +40,7 @@ export default {
 .absol {
   position: relative;
   flex: 1;
+  overflow: auto;
 
   .flex {
     position: absolute;
